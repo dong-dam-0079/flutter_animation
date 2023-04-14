@@ -27,6 +27,12 @@ dependencies:
   # https://pub.dev/packages/flutter_native_splash
   flutter_native_splash: ^2.2.9
 
+  # https://pub.dev/packages/audioplayers
+  audioplayers: ^3.0.1
+
+  # https://pub.dev/packages/scrollable_positioned_list
+  scrollable_positioned_list: ^0.3.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -40,3 +46,4 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/sounds/

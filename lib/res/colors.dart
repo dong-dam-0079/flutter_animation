@@ -6,7 +6,7 @@ class ColorsRes {
   static const secondary = Color(0xccff6a92);
   static const contentLightTheme = Color(0xFF1D1D35);
   static const contentDarkTheme = Color(0xFFF5FCF9);
-  static const backgroundTheme = Color(0xFFF9F3F8);
+  static const backgroundTheme = Color(0xFFFDE5FA);
   static const backgroundThemeOld = Color(0x33ff7fac);
   static const warning = Color(0xFFF1DC3E);
   static const error = Color(0xFFF03738);
