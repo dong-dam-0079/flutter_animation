@@ -57,15 +57,6 @@ class Gaps {
     ),
   );
 
-  /// Vertical line
-  static const vLineSmall = SizedBox(
-    height: 1,
-    width: double.infinity,
-    child: DecoratedBox(
-      decoration: BoxDecoration(color: ColorsRes.borderGray),
-    ),
-  );
-
   /// Horizontal line
   static const hLine = SizedBox(
     width: 1,
@@ -74,16 +65,6 @@ class Gaps {
       decoration: BoxDecoration(color: ColorsRes.borderList),
     ),
   );
-
-  SizedBox vLineDecor(
-          [double height = 1.5, Color color = ColorsRes.borderGray]) =>
-      SizedBox(
-        height: height,
-        width: double.infinity,
-        child: DecoratedBox(
-          decoration: BoxDecoration(color: color),
-        ),
-      );
 
   static const Divider line = Divider();
   static const empty = SizedBox.shrink();

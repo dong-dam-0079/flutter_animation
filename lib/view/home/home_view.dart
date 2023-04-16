@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/common/common_text_styles.dart';
 import 'package:flutter_animation/res/colors.dart';
 import 'package:flutter_animation/res/dimens.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../res/assets.dart';
@@ -12,17 +14,34 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   final ItemScrollController scrollController = ItemScrollController();
-final ItemPositionsListener itemPositionsListener = ItemPositionsListener.create();
 
+  AnimationController? _btnDownCtl;
 
-@override
+  @override
   void initState() {
     super.initState();
-    itemPositionsListener.itemPositions.addListener(() {
+    controlAnimation();
+  }
 
-    });
+  void controlAnimation() {
+    _btnDownCtl = AnimationController(
+      duration: const Duration(milliseconds: 2500),
+      vsync: this,
+    )
+      ..forward()
+      ..addListener(() {
+        if (_btnDownCtl!.isCompleted) {
+          _btnDownCtl?.repeat();
+        }
+      });
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+    _btnDownCtl?.dispose();
   }
 
   @override
@@ -34,38 +53,58 @@ final ItemPositionsListener itemPositionsListener = ItemPositionsListener.create
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsRes.backgroundTheme,
-      body: Hero(
-        tag: 'open_box',
-        child: Container(
-          constraints: const BoxConstraints.expand(),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(Assets.imageBackground),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: ScrollablePositionedList.builder(
-            itemScrollController: scrollController,
-            itemPositionsListener: itemPositionsListener,
-            itemCount: 20,
-            itemBuilder: (context, index) {
-              return Container(
-                height: MediaQuery.of(context).size.height - kToolbarHeight,
-                padding: const EdgeInsets.only(
-                  left: DimensRes.sp16,
-                  right: DimensRes.sp16,
-                  top: kToolbarHeight,
-                ),
-                child: const Center(
-                  child: Text(
-                    'Data',
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        toolbarHeight: MediaQuery.of(context).size.height * 0.15,
+        flexibleSpace: SvgPicture.asset(
+          Assets.bannerHeart,
+          fit: BoxFit.cover,
+        ),
+      ),
+      body: ScrollablePositionedList.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        itemScrollController: scrollController,
+        itemCount: 20,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              Text(
+                'Data $index',
+                style: CommonTextStyles.medium,
+              ),
+              AnimatedBuilder(
+                animation: _btnDownCtl!,
+                builder: (context, child) => Transform.translate(
+                  offset: Offset(0, 20 * shake(_btnDownCtl!.value)),
+                  child: SizedBox(
+                    height: DimensRes.sp80,
+                    width: DimensRes.sp80,
+                    child: IconButton(
+                      color: ColorsRes.transparent,
+                      highlightColor: ColorsRes.backgroundTheme,
+                      onPressed: () {
+                        scrollController.scrollTo(
+                            index: index + 1,
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeIn);
+                      },
+                      icon: SvgPicture.asset(
+                        Assets.icArrowDown,
+                        color: ColorsRes.palePink,
+                      ),
+                    ),
                   ),
                 ),
-              );
-            },
-          ),
-        ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
+
+  double shake(double value) =>
+      2 * (0.5 - (0.5 - Curves.easeIn.transform(value)).abs());
 }

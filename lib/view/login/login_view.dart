@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/res/assets.dart';
 import 'package:flutter_animation/res/colors.dart';
@@ -12,12 +13,14 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   AnimationController? aniController;
+  final audioPlayer = AudioPlayer();
 
   @override
   void initState() {
     super.initState();
+    // _playSound();
 
     aniController = AnimationController(
       duration: const Duration(milliseconds: 1500),
@@ -32,9 +35,29 @@ class _LoginViewState extends State<LoginView>
   }
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+
+    switch (state) {
+      case AppLifecycleState.resumed:
+        audioPlayer.setReleaseMode(ReleaseMode.loop);
+        break;
+      case AppLifecycleState.inactive:
+        audioPlayer.setReleaseMode(ReleaseMode.stop);
+        break;
+      case AppLifecycleState.paused:
+        audioPlayer.setReleaseMode(ReleaseMode.stop);
+        break;
+      default:
+        break;
+    }
+  }
+
+  @override
   void dispose() {
     super.dispose();
     aniController?.dispose();
+    audioPlayer.dispose();
   }
 
   @override
@@ -55,10 +78,7 @@ class _LoginViewState extends State<LoginView>
                 onTap: () {
                   Get.to(const HomeView());
                 },
-                child: Hero(
-                  tag: 'open_box',
-                  child: Image.asset(Assets.imageGift),
-                ),
+                child: Image.asset(Assets.imageGift),
               ),
             ),
           ),
@@ -69,4 +89,9 @@ class _LoginViewState extends State<LoginView>
 
   double shake(double value) =>
       2 * (0.5 - (0.5 - Curves.bounceIn.transform(value)).abs());
+
+  void _playSound() async {
+    audioPlayer.setReleaseMode(ReleaseMode.loop);
+    await audioPlayer.play(AssetSource(Assets.soundCute));
+  }
 }
