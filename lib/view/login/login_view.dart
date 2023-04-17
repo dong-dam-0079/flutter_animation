@@ -1,9 +1,10 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/res/assets.dart';
-import 'package:flutter_animation/res/colors.dart';
-import 'package:flutter_animation/view/home/home_view.dart';
 import 'package:get/get.dart';
+
+import '../../res/assets.dart';
+import '../../res/colors.dart';
+import '../home/home_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -76,7 +77,12 @@ class _LoginViewState extends State<LoginView>
                 splashColor: ColorsRes.transparent,
                 highlightColor: ColorsRes.transparent,
                 onTap: () {
-                  Get.to(const HomeView());
+                  Get.to(
+                    const HomeView(),
+                    transition: Transition.zoom,
+                    duration: const Duration(milliseconds: 800),
+                    curve: Curves.easeInOutCirc,
+                  );
                 },
                 child: Image.asset(Assets.imageGift),
               ),

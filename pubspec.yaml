@@ -1,4 +1,4 @@
-name: flutter_animation
+name: ForQA
 description: Flutter animation
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -35,6 +35,9 @@ dependencies:
 
   # https://pub.dev/packages/google_fonts
   google_fonts: ^4.0.3
+
+  # https://pub.dev/packages/animated_text_kit
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:

@@ -1,8 +1,9 @@
 import 'dart:ui';
 
-import 'package:flutter_animation/res/colors.dart';
-import 'package:flutter_animation/res/dimens.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../res/colors.dart';
+import '../res/dimens.dart';
 
 class CommonTextStyles {
   static final medium = GoogleFonts.meowScript(

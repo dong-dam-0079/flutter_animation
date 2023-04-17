@@ -1,5 +1,5 @@
+import 'package:ForQA/view/login/login_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/view/login/login_view.dart';
 import 'package:get/get.dart';
 
 import 'res/themes.dart';
