@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "394521378867",
+    "project_id": "quynh-anh-birthday",
+    "storage_bucket": "quynh-anh-birthday.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394521378867:android:ddbb1918f94ffe17e02346",
+        "android_client_info": {
+          "package_name": "com.example.flutter_animation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394521378867-u9vulttitc7sd645lhd9hj0o3ujttcvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM-bkYytoM8ZJag1ZE5Key5ItwSdLEXNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394521378867-u9vulttitc7sd645lhd9hj0o3ujttcvr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
