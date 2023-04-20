@@ -13,6 +13,7 @@ class Assets {
   /// Images
   static const imageGift = '$pathImages/img_gift.png';
   static const imageBackground = '$pathImages/img_background.jpg';
+  static const imageDummy = '$pathImages/img_dummy.png';
 
   /// Sounds
   static const soundCute = '$pathSounds/sound_cute.mp3';
