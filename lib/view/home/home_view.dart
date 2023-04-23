@@ -8,7 +8,6 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import '../../common/common_text_styles.dart';
 import '../../res/assets.dart';
 import '../../res/colors.dart';
-import '../../res/dimens.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -26,6 +25,11 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: ColorsRes.backgroundTheme,
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        title: Text(
+          '_02.05.2023_',
+          style: CommonTextStyles.medium,
+        ),
+        centerTitle: true,
         backgroundColor: Colors.transparent,
         toolbarHeight: MediaQuery.of(context).size.height * 0.1,
         flexibleSpace: SvgPicture.asset(
@@ -35,12 +39,12 @@ class _HomeViewState extends State<HomeView> {
       ),
       body: Column(
         children: [
-          Gaps.vGap24,
+          Gaps.vGap12,
           const Expanded(
             child: TransformPageViewWidget(),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: MediaQuery.of(context).size.height * 0.3,
             child: Center(
               child: DefaultTextStyle(
                 style: CommonTextStyles.medium,
@@ -48,10 +52,10 @@ class _HomeViewState extends State<HomeView> {
                   isRepeatingAnimation: false,
                   animatedTexts: [
                     TyperAnimatedText(
-                      'Hello, How are you today?\nIm very well?',
+                      'Hí em yêu\nHi vọng món quà này sẽ làm ngày sinh nhật của em thêm trọn vẹn nhé\n🎂\nFrom Sơn Đông with love',
                       textAlign: TextAlign.center,
-                      speed: const Duration(milliseconds: 80),
-                    )
+                      speed: const Duration(milliseconds: 60),
+                    ),
                   ],
                 ),
               ),

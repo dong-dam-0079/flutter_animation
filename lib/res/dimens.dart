@@ -23,6 +23,7 @@ class DimensRes {
   static const double sp28 = 28.0;
   static const double sp30 = 30.0;
   static const double sp32 = 32.0;
+  static const double sp36 = 36.0;
   static const double sp40 = 40.0;
   static const double sp42 = 42.0;
   static const double sp44 = 44.0;

@@ -1,7 +1,9 @@
 import 'dart:math';
 
+import 'package:ForQA/common/common_text_styles.dart';
 import 'package:ForQA/model/info_model.dart';
 import 'package:ForQA/res/colors.dart';
+import 'package:ForQA/res/dimens.dart';
 import 'package:ForQA/view/detail/detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -98,37 +100,25 @@ class _TransformPageViewWidgetState extends State<TransformPageViewWidget> {
                             curve: Curves.easeOut,
                             child: Container(
                               padding: const EdgeInsets.only(
-                                  top: 15, bottom: 30, left: 20, right: 20),
+                                left: DimensRes.sp28,
+                                bottom: DimensRes.sp20,
+                              ),
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
                                   colors: [
-                                    ColorsRes.backgroundTheme.withOpacity(0.05),
+                                    ColorsRes.primary.withOpacity(0.05),
                                     ColorsRes.backgroundTheme2.withOpacity(0.5),
                                   ],
                                 ),
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    item.title,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 23,
-                                      fontWeight: FontWeight.bold,
-                                      letterSpacing: 1.2,
-                                    ),
-                                  ),
-                                  Text(
-                                    item.caption,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ],
+                              child: Text(
+                                item.title,
+                                style: CommonTextStyles.medium.copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: ColorsRes.white,
+                                ),
                               ),
                             ),
                           ),

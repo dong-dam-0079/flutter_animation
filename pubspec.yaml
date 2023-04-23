@@ -38,6 +38,7 @@ dependencies:
 
   # https://pub.dev/packages/animated_text_kit
   animated_text_kit: ^4.2.2
+  video_player: ^2.6.1
 
 dev_dependencies:
   flutter_test:
@@ -53,3 +54,4 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/sounds/
+    - assets/videos/
