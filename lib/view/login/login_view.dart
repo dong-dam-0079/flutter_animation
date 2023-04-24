@@ -1,3 +1,4 @@
+import 'package:ForQA/utils/music_utils.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,11 +18,12 @@ class _LoginViewState extends State<LoginView>
     with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   AnimationController? aniController;
   final audioPlayer = AudioPlayer();
+  final music = Music.instance;
 
   @override
   void initState() {
     super.initState();
-    // _playSound();
+    music.playSound();
 
     aniController = AnimationController(
       duration: const Duration(milliseconds: 1500),
@@ -95,9 +97,4 @@ class _LoginViewState extends State<LoginView>
 
   double shake(double value) =>
       2 * (0.5 - (0.5 - Curves.bounceIn.transform(value)).abs());
-
-  void _playSound() async {
-    audioPlayer.setReleaseMode(ReleaseMode.loop);
-    await audioPlayer.play(AssetSource(Assets.soundCute));
-  }
 }

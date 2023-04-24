@@ -3,6 +3,7 @@ import 'package:ForQA/model/info_model.dart';
 import 'package:ForQA/res/assets.dart';
 import 'package:ForQA/res/colors.dart';
 import 'package:ForQA/res/dimens.dart';
+import 'package:ForQA/utils/music_utils.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,11 +24,13 @@ class DetailView extends StatefulWidget {
 
 class _DetailViewState extends State<DetailView> {
   VideoPlayerController? _controller;
+  final music = Music.instance;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset(Assets.video)
+    _controller = VideoPlayerController.asset(Assets.video,
+        videoPlayerOptions: VideoPlayerOptions(mixWithOthers: false))
       ..initialize().then((value) {
         setState(() {
           _controller?.play();
@@ -48,6 +51,8 @@ class _DetailViewState extends State<DetailView> {
 
     if (isShowVideo == false) {
       _controller?.pause();
+    } else {
+      music.stopLoop();
     }
 
     return Scaffold(
@@ -75,6 +80,9 @@ class _DetailViewState extends State<DetailView> {
                 child: IconButton(
                   onPressed: () {
                     Get.back();
+                    if(isShowVideo == true) {
+                      music.playSound();
+                    }
                   },
                   icon: SvgPicture.asset(
                     Assets.icArrowBack,

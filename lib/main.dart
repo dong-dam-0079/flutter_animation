@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FlutterNativeSplash.remove();
+    Future.delayed(const Duration(milliseconds: 1500))
+        .then((value) => FlutterNativeSplash.remove());
 
     return GetMaterialApp(
       theme: Themes.commonThemeData(context),
