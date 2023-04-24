@@ -12,7 +12,7 @@ class Assets {
   static const imageGift = '$pathImages/img_gift.png';
   static const imgGreen = '$pathImages/img_green.jpg';
   static const imgBlue1 = '$pathImages/img_blue1.JPG';
-  static const imgNation= '$pathImages/img_nation.JPG';
+  static const imgNation= '$pathImages/img_nation.jpg';
   static const imgSapa= '$pathImages/img_sapa.jpg';
   static const imgEnd= '$pathImages/img_end.jpg';
 
