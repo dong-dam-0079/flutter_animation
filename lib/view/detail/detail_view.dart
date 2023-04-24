@@ -80,7 +80,7 @@ class _DetailViewState extends State<DetailView> {
                 child: IconButton(
                   onPressed: () {
                     Get.back();
-                    if(isShowVideo == true) {
+                    if (isShowVideo == true) {
                       music.playSound();
                     }
                   },
@@ -102,7 +102,7 @@ class _DetailViewState extends State<DetailView> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: DimensRes.sp12),
                   child: DefaultTextStyle(
-                    style: CommonTextStyles.mediumBold
+                    style: CommonTextStyles.largeBold
                         .copyWith(color: ColorsRes.palePink),
                     child: AnimatedTextKit(
                       isRepeatingAnimation: false,
@@ -110,9 +110,6 @@ class _DetailViewState extends State<DetailView> {
                         TyperAnimatedText(
                           content,
                           textAlign: TextAlign.center,
-                          speed: const Duration(
-                            milliseconds: 50,
-                          ),
                         ),
                       ],
                     ),

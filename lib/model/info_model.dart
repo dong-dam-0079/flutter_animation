@@ -16,11 +16,11 @@ List<InfoModel> generateSomeData() {
   List<String> titleList = ["Hí", "Yêu", "Em", "1327", "Finally"];
 
   List<String> captionList = [
-    "Hí em yêu\n Đây là 'món quà cây nhà lá vườn anh' làm để chúc mừng sinh nhật cục yêu của anh\nVậy nên em hãy xem từng ảnh một nhé",
+    "Hôm nay là một ngày đặc biệt, là ngày mà cục yêu của anh đã có mặt trên thế giới cách đây vài chục năm về trước",
     "Chúc em yêu của anh có một ngày sinh nhật thật vui vẻ dù ở bên gia đình hay ở bên cạnh anh nhé",
-    "Cô gái của anh mãi mãi là đoá hoa đẹp nhất trong lòng anh nhé\n🌹",
-    "Yêu em\n1 Đời\n3 Ca ( sáng - chiều - tối )\n2 Mùa ( mùa mưa và khô )\nVà 7 Ngày trong tuần",
-    "Chúc em và chúc cho đôi ta già cùng nhau là được\n❤❤❤"
+    "Cô gái của anh mãi mãi là đoá hoa đẹp nhất trong lòng anh",
+    "1327 là số ngày chúng mình yêu nhau cho đến hôm nay\nAnh nguyện yêu em\n1 Đời\n3 Ca ( sáng - chiều - tối )\n2 Mùa ( mùa mưa và khô )\nVà 7 Ngày trong tuần",
+    "Và cuối cùng\nChúc em và chúc cho đôi ta già cùng nhau là được\n❤❤❤"
   ];
 
   List<String> assetName = [

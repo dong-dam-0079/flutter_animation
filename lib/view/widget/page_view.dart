@@ -115,10 +115,7 @@ class _TransformPageViewWidgetState extends State<TransformPageViewWidget> {
                               ),
                               child: Text(
                                 item.title,
-                                style: CommonTextStyles.medium.copyWith(
-                                  fontWeight: FontWeight.w700,
-                                  color: ColorsRes.white,
-                                ),
+                                style: CommonTextStyles.mediumWhite,
                               ),
                             ),
                           ),

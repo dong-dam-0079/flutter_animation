@@ -1,3 +1,4 @@
+import 'package:ForQA/res/dimens.dart';
 import 'package:ForQA/res/gaps.dart';
 import 'package:ForQA/view/widget/page_view.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -27,7 +28,7 @@ class _HomeViewState extends State<HomeView> {
         automaticallyImplyLeading: false,
         title: Text(
           '_02.05.2023_',
-          style: CommonTextStyles.medium,
+          style: CommonTextStyles.medium.copyWith(fontWeight: FontWeight.w600),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -47,12 +48,13 @@ class _HomeViewState extends State<HomeView> {
             height: MediaQuery.of(context).size.height * 0.3,
             child: Center(
               child: DefaultTextStyle(
-                style: CommonTextStyles.medium,
+                style:
+                    CommonTextStyles.medium.copyWith(fontSize: DimensRes.sp32),
                 child: AnimatedTextKit(
                   isRepeatingAnimation: false,
                   animatedTexts: [
                     TyperAnimatedText(
-                      'Hí em yêu\nHi vọng món quà này sẽ làm ngày sinh nhật của em thêm trọn vẹn nhé\n🎂\nFrom Sơn Đông with love',
+                      "Hí em yêu\n Tặng em 'món quà cây nhà lá vườn' anh làm chúc mừng sinh nhật cục yêu của anh nha\n🎂\nFrom Sơn Đông with love",
                       textAlign: TextAlign.center,
                       speed: const Duration(milliseconds: 60),
                     ),
